@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>faculty-dashboard</title>
+    <style class="text/css">
+      body{
+        font-size: small;
+      }
+       
+        /*navbar*/
+        .logo{
+            width: 40px;
+        }
+        .nav-user{
+            width: 30px;
+        }
+        abbr{
+            text-align: none;
+            cursor: pointer;
+        }
+
+
+        /*side-menu*/
+       a{
+           text-decoration: none;
+           color:none;
+       }
+       .menu-div{
+           background-color: rgb(11, 36, 77);
+           color: #fff;
+           min-height: 760px;
+            left: 0%;
+            border-right: 1px rgb(255, 255, 255) solid;
+         
+       }
+       .list-group
+       {
+           width: 100%;
+          
+       }
+       .side-links{
+           padding: 10px 10px;
+           color: rgb(255, 255, 255);
+           font-size: 17px;
+           background-color: inherit;
+           width: 100%;
+           border: none;
+           border-left:  transparent 3px solid;
+           
+       }
+       .side-links:hover {
+           border-left: blue 3px solid;
+           background-image:  linear-gradient(to right, rgb(242, 247, 250), rgb(189, 223, 245));
+       }
+       .on-btn{
+        border-left: blue 3px solid;
+        color: blue;
+        background-image:  linear-gradient(to right, rgb(242, 247, 250),rgb(189, 223, 245));
+       }
+       .logout{
+           padding: 15px;
+           font-size: 17px;
+           margin-bottom: 10px;
+           color: aliceblue;
+       }
+
+       /* content-div */
+       .content-div{
+           background-color: rgb(209, 209, 209);
+           overflow-x: hidden;
+           overflow-y: auto;
+           scroll-behavior: smooth;
+           max-height: 780px;
+
+       }    
+       .min-nav{
+            padding: 15px;
+            background-color: rgba(11, 36, 77, 1);
+           border-radius: 10px;
+           display: inline;
+       }
+
+       .side-head{
+           font-weight: 700;
+           padding: 8px 25px;
+           font-size: 25px;
+           background-color: #005;
+           color: #fff;
+           min-width: 2 00px;
+           display: inline-table;
+       }
+
+       .btn-opt{
+            padding : 6px 9px;
+           color: white;
+           border-radius: 20px;
+           font-size: 17pxz;
+           font-weight: 600;
+           border: 2px solid transparent;   
+       }
+       .btn-opt:hover{
+           color:aliceblue ;
+           border: 2px solid white   ;   
+       }
+
+       /* my class */
+     
+       .class{
+           
+           background-color: rgba(6, 0, 90, 0.4);
+           max-width: 420px;
+       }
+       .class-details{
+           top: 50%;
+           left: 50%;
+           position: absolute;
+           transform: translate(-50%,-50%);
+           width: 100%;
+           color: rgb(0, 11, 109);
+       }
+       .class-details a{
+           background-color: rgb(0, 0, 255);
+           color: #fff;
+           font-weight: 600;
+           padding: 10px 30px;
+       }
+
+       .class .card{
+           background-color: rgb(28, 42, 168,0.9);
+           color: rgb(255, 255, 255);
+           max-height: fit-content;
+        
+       }
+       .class .card:hover{
+        background-color: rgb(0, 0, 255,0.9);
+        color: #fff;
+       }
+       
+
+       #piechart_3d{
+           width: 100%;
+           min-height: 400px;
+           
+       }
+       #barchart_material
+       {
+         height: 90%;
+         width: 95%;
+       }
+
+       /*tabel*/
+       .tabel-div{
+           width: 100%;
+           max-height: 400px;
+           overflow-y: scroll;
+        }
+        
+
+         /*assign-work*/
+       .form-head{
+        background-color: rgb(235, 235, 235);
+        border: 1px solid rgb(211, 211, 211);
+        padding: 15px;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .top-btn{
+        background-color: #fff;
+        border: 1px solid rgb(6, 0, 93);
+        padding: 6px 15px;
+        margin-left: 5px;
+      
+      }
+     .top-btn:hover{
+       border: 1px rgb(255, 255, 255) solid;
+       background-color: #005;
+       color: #fff;
+     }
+     .minus{
+       background-color: none;
+       font-size:23px ;
+       float: right;
+       border: 1px solid transparent;
+       line-height: 10px;
+      
+     }
+     .minus:hover{
+       border: rgb(158, 158, 158) 1px solid;
+     }
+     
+     .icon-col{
+       color: rgb(27, 27, 163);
+       font-size: 25px;
+       padding-left: 15px;   
+      
+
+     }
+     .label-col{
+        width:25%;
+        line-height: 40px;
+        font-weight: 600;
+        text-align: center;
+     }
+     .input-col input,select {
+       border:none;
+       border-bottom: 1px solid #005;
+       margin-left: 10px;
+       background-color: transparent;
+       outline: none;
+       min-width: 200px;
+       line-height: 30px;
+       max-width: 300px;
+     }
+     table td{
+       padding: 15px;
+     }
+     table tr{
+         padding: 5px;
+     }
+     
+     .input-area{
+       border: #005 2px solid;
+       background-color: transparent;
+     }
+
+     #piechart{
+        max-width: 200px;
+     }
+       
+
+    </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+
+     {% if messages %}
+     {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+     {% endfor %}
+ {% endif %}
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar  navbar-light bg-light shadow ">
+        <div class="container-fluid">
+            <div class="col-12  col-xl-2 text-center  ">
+                <a class=" navbar-brand fw-bold " href="#">
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+                    <abbr title="Project-submisttion-portal"><span class="d-xl-inline d-none"> PSP</span></abbr> <span class="d-xl-none">Project-submission-portal</span>
+                </a>
+            </div>
+            <div class="col-12    col-xl-10 d-flex">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-opt" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h5 class="ms-3  my-auto">Faculty-Dashbaord</h5>
+                <div class="d-flex text-dark  ms-auto">
+                    <a class="nav-link " href="#"> 
+                        <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{user.first_name}} {{user.last_name}}</span>
+                    </a>
+                    <a class="nav-link" onclick="notifications()" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
+                    <a href="https://github.com/" id="notification_link" hidden></a>
+                </div>
+            </div>
+        </div>
+    </nav>  <!--navbar-end-->
+
+    <!--content-->
+    <div class="container-fluid">
+        <div class="row p-2">
+            <!--side-menu-->
+            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+                <div class="list-group mt-1">
+                    <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href="#" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
+                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                        <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
+                    </a>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item " href="#"><i class="bi bi-plus-circle-fill me-2"></i> <span class=""> upload</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
+                        </ul>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                </div>
+                <br><br><br><br><br><br>
+                <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                <br><br><br>
+            </div>
+
+        <!---main-content-->
+        <div class="col   content-div"> 
+             <!--min-nav-->
+             <div class="text-center mt-4">
+                <div class=" min-nav " role="group" >     
+                    <a href="#myclass" class="btn btn-opt me-1" >My class</a>                  
+                    <a href="#std-projects" class="btn btn-opt me-1 " >projects</a>
+                    <a href="#assign-work" class="btn btn-opt " >Create</a> 
+                </div>
+            </div>
+            
+
+             <!--Notifications-->
+             <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
+              <div class="offcanvas-header">
+                  <h6 class="side-head ms-1 mt-2 p-2" id="regester">Notifications</h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <div class="p-1">   
+                      {% for instruction in project_instructions %} 
+                      <div class="p-1 border  shadow" style="background-color:#0111;">
+                          <h6 class="text-dark mb-1 mt-1  ">{{ instruction_title }}  [   {{ instruction_faculty }}]</h6>
+                          <div>
+                              <span class="fw-bold">Due Date : </span>
+                              <span>{{ instruction_dueDate }}</span>
+                          </div>
+                          <div>
+                              <ul>
+                                  {% for msg in instruction_msg %}
+                                  <li>{{ msg }}</li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+              </div>
+            
+            <br>
+
+            <!--my class-->
+            <h4 class="side-head mt-3 text-center " id="myclass">MY CLASS</h4>
+            <div class="row justify-content-evenly">
+                <!--class-->
+                {% for class in classes %}
+                <div class="col-xl-4  col-lg-6 col-12 class border rounded   shadow p-1  mb-3 ">
+                  <div class="row">
+                      <div class="col-6  text-center position-relative">
+                          <div class=" class-details">
+                              <h2 class="fw-bold">{{ class.name }}</h2>
+                              <h5 class="mb-3">{{ class.no }}</h5>  
+                              <a href="#projects" class="btn ">Projects</a>   <br>
+                               <!-- add student -->
+                               <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#{{ class.no }}">
+                                <i class="bi bi-person-plus-fill"></i> ADD
+                              </button>
+                          </div>       
+
+                           <!-- Modal -->
+                        <div class="modal fade" id="{{ class.no }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header ">
+                                <h5 class="modal-title text-center" id="staticBackdropLabel"> {{ class.name }} </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p class="ms-auto">Enter student's Clg ID and year  to Add</p>
+                                <form>
+                                
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="clg_id"><i class="bi bi-person-bounding-box me-3"></i>Clg ID</span>
+                                    <input type="email" class="form-control" placeholder="college ID here.." >
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="year"><i class="bi bi-calendar-fill me-3"></i>Acadamic year</span>
+                                    <select class="form-select" aria-label="year">
+                                      <option value="">--Year--</option>
+                                      <option value="E1">E1</option>
+                                      <option value="E2">E2</option>
+                                      <option value="E3">E3</option>
+                                      <option value="E4">E4</option>
+                                    
+                                    </select>
+                                  </div>
+
+                                </form>
+                              </div>
+                              <div class="modal-footer  ">        
+                                <button type="button" class="btn btn-primary" style="padding: 5px 30px; "> <i class="bi bi-person-plus-fill"></i> ADD</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>  
+
+                                                         
+                      </div>
+                      <div class="col-6 justify-content-evenly">
+                          <div class="card  shadow   mb-1 text-center" >
+                              <div class="card-body row ">
+                                <span class=" fs-3  fw-bold text-center">{{  class.registered }}</span><br>
+                                <span class="card-text col " style="display: grid; place-items: center;">Registered</span>
+                              </div>
+                          </div>
+                          <div class="card shadow   mb-1 text-center" >
+                              <div class="card-body row">
+                                <span class=" fs-3  fw-bold text-center">{{ class.submitions }} </span><br>
+                                <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+              {% endfor %}
+
+
+              
+
+              
+
+
+
+              </div>
+            <!---row-2-->
+            <div class="row">
+
+                <!--graph-->
+                <div class="col-lg-8 col-md-7 col-12 p-3" >
+                    <h4 class="side-head mt-3 text-center " >Graph</h4>
+                    <canvas id="myChart"></canvas>
+                    <!--<div id="barchart_material" style="overflow-x:scroll ;"></div>-->
+                </div>
+
+                <!--pichat-->
+                <div class="col-lg-3 col-md-4 col-12 ">
+                  <h4 class="side-head mt-3 text-center mt-5" >Pie chart</h4>
+                    <canvas id="pieChart"></canvas>
+                  
+                </div>
+
+            </div>
+
+            <!--projects-->
+             <!--all the projects-->
+             <h4 class="side-head ms-3 mt-5" id="projects">Students Registered</h4>
+             <!--list of all  the projects-->
+
+             <div >
+                  <div class="tabel-div mb-3">
+                  <table class="table  table-striped table-hover mt-3" id="students-list">
+                      <thead>
+                      <tr>
+                          <th scope="col">S no</th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Branch</th>
+                          <th scope="col">Year</th>
+                          <th scope="col">Project status</th>
+
+                      </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for student in registered %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td><a href="#">{{ student.clg_id }}</a> </td>
+                            <td>{{ student.name}}</td>
+                            <td>{{ student.branch }}</td>
+                            <td>{{ student.aca_year }}</td>
+                            <td>
+                              {% if student.is_submitted == 1 %}
+                              <span style="color: green ; font-weight: 600;">Submitted</span>
+                              {% else %}
+                              <span style="color: red ; font-weight: 600;">Pending</span>
+                              {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                      
+  
+                      </tbody>
+                  </table >
+                  </div>
+              
+
+                 <!--projects-->
+                <!--all the projects-->
+                <h4 class="side-head ms-3 mt-5" id="projects">Students Projects</h4>
+                <!--list of all  the projects-->
+                 </div>
+                 <div class="tabel-div mb-3">
+                 <table class="table  table-striped table-hover mt-3" id="projects-list">
+                     <thead>
+                     <tr>
+                         <th scope="col">S no</th>
+                         <th scope="col">Id</th>
+                         <th scope="col">Name</th>
+                         <th scope="col">Branch</th>
+                         <th scope="col">Project_Title</th>
+                         <th scope="col">Source</th>
+                     </tr>
+                     </thead>
+                     
+                     <tbody>
+                      {% for student in submitted %}
+                      <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td><a href="#">{{ student.clg_id }}</a> </td>
+                          <td>{{ student.name}}</td>
+                          <td>{{ student.branch }}</td>
+                          <td>{{ student.project_title }}</td>
+                          <td><a href="{% url 'download_project' %}?id={{student.project_id}}" class="btn btn-outline-primary" >View</a></td>
+                      </tr>
+                      {% endfor %}
+                    
+
+                     </tbody>
+                 </table >
+                 </div>
+
+                 
+
+ 
+             <!--Assign-work-->
+             <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
+   
+             <!--form-->
+             <form action="{% url 'create_notifications' %}" method="POST" enctype="application/x-www-form-urlencoded">
+              {% csrf_token %}
+            <div class="bg-light">
+
+                <div  class="form-head row">
+                  <div class="col-md-6 col-12">
+                    <p class="  text-start"> Fill the details and click assign to assign work.</p>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="text-end">
+                      <button  type="submit"  class=" top-btn">Assign work</button>
+                      <button  type="reset" class="top-btn">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                
+            
+
+                <div class="form-head mb-2">
+                  <span><i class="bi bi-pencil-square  ms-4 me-2 "></i>Receiver Details</span> 
+                  <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
+                </div>
+
+                <div class="row justify-content-center bg-light  pt-4"> 
+
+              
+                      
+                      <div class=" col-12 col-md-6  mb-4 form-check form-switch d-flex ">
+                        <i class="bi bi-people-fill   icon-col"></i>
+                        <span class="label-col ">Send All : </span>
+                        <div class="ms-4" style =" line-height: 43px;" >
+                          <input class="form-check-input mt-3 me-1" type="checkbox" id="sendto" onclick="disableFun()"> 
+                          <label class="form-check-label" for="sendto">click here to send to all</label>
+                        </div>
+                      </div>
+                    
+
+                    <div class="col-12 col-md-6 d-flex mb-4" id="email-div">
+                      <i class="bi icon-col bi-person-bounding-box"></i>
+                    <span class="label-col"  >Clg Id</span>
+                    <div class="input-col"><input class="input-col" name="clg_id" type="text" placeholder="enter Id to send..." required id="email-field"> </div>
+                  </div>
+                </div>
+
+
+        
+              <div class="form-head mb-3">
+                <span><i class="bi bi-pencil-square ms-4 me-2 "></i>Instructions</span> 
+                <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
+              </div>
+            
+              
+              <div class="row justify-content-center bg-light pt-5"> 
+
+        
+
+              <div class="col-12 col-md-6 d-flex mb-4">
+                <i class=" icon-col bi bi-pen-fill"></i>
+                <span class="label-col">Msg Title</span>
+                <div class="input-col"><input class="input-col" name="msg_title" type="Text" placeholder="Msg Title " required> </div>
+              </div>
+
+              <div class="col-12 col-md-6 d-flex mb-4">
+                <i class=" icon-col bi bi-people-fill"></i>
+                <span class="label-col">Due date</span>
+                <div class="input-col">
+                  <input class="input-col" name="due_date" type="Date"  required>
+                </div>
+              </div>
+
+               
+                
+                <div class="col-10 col-md-9 mb-4 ">
+                  <div class="form-floating">
+                    <textarea class="form-control input-area" name="instructions" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Instructions to the Project</label>
+                  </div>
+                </div>
+
+
+              </div>
+              </form>
+           
+          </div>
+        </div>
+            
+        |</div>
+    </div>
+</div>
+    
+           
+
+            
+          
+        
+
+
+
+
+
+
+   <!-- footer -->
+    <footer>
+        <div class="container-fluid footer bg-lignt text-dark bg-primary  " >
+        <div class="row  text-center justify-content-center">
+            <div class="row  justify-content-center p-2">
+                <div class="col-10 col-md-2">Copyright &copy 2021</div>
+                <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
+            </div>
+        </div>
+        </div>     
+    </footer>
+
+    <script>
+      function notifications()
+      {
+        document.getElementById('notification_link').click();
+      }
+    </script>
+
+    <!--disabled script-->
+    <script>
+      function  disableFun(){
+        var sendto = document.getElementById('sendto');
+        
+        if(sendto.checked)
+        {
+          document.getElementById("email-field").value = null;
+          document.getElementById("email-field").disabled = true;
+          document.getElementById("email-div").style.color = "#787b80";
+          document.getElementById("email-field").style.borderColor = "#787b80";
+         
+        }
+        else 
+        {
+          document.getElementById("email-field").disabled = false;
+          document.getElementById("email-div").style.color = "black";
+          document.getElementById("email-field").style.borderColor = "#005";
+        }
+      }
+    </script>
+
+
+      <!---table-->
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+      <script>
+        $(document).ready(function () {
+            $('#projects-list').DataTable();
+        });
+      </script>
+       <script>
+         $(document).ready(function () {
+             $('#students-list').DataTable();
+         });
+       </script>
+
+
+      <!-- Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Puc1', 'Puc2', 'E1', 'E2', 'E3', 'E4'],
+                datasets: [
+                {
+                    label: 'Restrations ',
+                    data: {{rCountList}},
+                    backgroundColor: [
+                    'rgb(10, 18, 90)'
+                    ],
+                    borderColor: [
+                    'rgb(255, 252, 255,1)'
+                    ],
+                    borderWidth: 1
+                },
+
+                {
+                    label: 'Submitions ',
+                    data: {{sCountList}},
+
+                    backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    ],
+                    borderColor: [
+                        'rgb(255, 252, 255)'
+                    ],
+                    borderWidth: 1
+                }
+
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        </script>
+
+
+    
+    
+        <script>
+          //setup
+          const dataPie = {
+                labels: [ 'Submitions', 'Pending', ],
+                datasets: [{
+                  label: 'Submitions and pendings',
+                  data: {{overAllStats}},
+                  backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
+                  ],
+                  hoverOffset: 4
+                }]
+              };
+          //config
+          const configPie = {
+            type: 'pie',
+            data: dataPie,
+            options: {}
+          };
+          //render inti block
+          const pieChart = new Chart(
+            document.getElementById('pieChart'),
+            configPie
+          );
+
+        </script>
+
+       
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

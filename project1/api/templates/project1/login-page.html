@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Login-page</title>
+
+    <style type="text/css">
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body{
+            background-image: linear-gradient( to right, #0873a5, #6fd5fe);
+            color: #fff;
+        }
+        
+       
+        .img-gif{
+            height: 300px;
+            width: auto;
+        }
+        p{
+            font-size: 15px;
+        }
+        .reg-btn{
+            background-color: #fff;
+            padding: 8px 60px;
+            border-radius: 20px;
+            color: #068B52;
+            font-weight: 600;
+        }
+       
+        
+        .reg-btn:hover{
+             color: #fff;
+             font-weight: 600;
+             background-color: rgb(16, 60, 255);             
+
+        }
+
+        .login-btn{
+            background-color: #154d7b;
+            padding: 8px 60px;
+            border-radius: 20px;
+            font-weight: 600;
+        
+        }
+        .login-btn:hover{
+             color: #fff;
+             font-weight: 600;
+             background-color: rgb(16, 60, 255);          
+
+        }
+        a{
+            text-decoration: none;
+        }
+        .forget{
+            font-size: 13px;
+        }
+
+        .login-form{
+            color: #000;
+            background-color: rgb(22, 1, 1);
+            border-radius: 150px 20px 20px 150px;
+            box-shadow: 15px 20px 49px -14px #000;
+        }
+        .input-field{
+            max-width: 380px;
+            width:100%;
+            height:55px;
+            background-color: #cde9f4;
+            margin: 5px;
+            border-bottom: rgb(7, 106, 255) solid 3px;
+            border-radius:  20px ;
+            position: relative;
+            font-size: x-large;
+
+        }   
+        .icon{
+            justify-content: center;
+            text-align: center;
+            line-height: 45px;
+            padding: 3px;
+            color: #000000;
+            font-size: 25px;
+        }
+        .input-box{
+            margin-left: 10px;
+            background-color: transparent;
+            outline: none;
+            border:none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;           
+            color: rgb(0, 0, 0);  
+            
+        }
+        
+        .logo{
+            width: auto;
+            height:40px ;
+            line-height: 50px;
+        }
+
+
+    </style>
+
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+  </head>
+  <body>
+
+     <!--navbar-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class=" ms-5 navbar-brand" href="#">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+            RGUKT
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex ms-auto me-3    ">
+             
+              <a href="{% url 'register-page' %}" class="btn btn-dark me-5" type="button">Sign-up</a>  
+            </form>
+          </div>
+        </div>
+      </nav>
+ 
+    <!--login-container-->
+    <div class="container-fluid m-2  mt-5">
+        <div class="row text-center justify-content-evenly">
+
+            <div class="col-11 col-md-4 p-2 m-2 text-light text-center">
+                <img  class="img-gif mt-3" src="https://media2.giphy.com/media/Lka9lcOAdjgcqyTnJt/200w.webp?cid=ecf05e47orpn4h96yj2vr648mvxmcl67civ82zmr0s5jpnb1&rid=200w.webp&ct=s" alt=" logo" >
+                <h1 class="mb-2"><b>Are you Fresher?</b></h1>
+                <p class="mb-4" >Go a head and join with us....!<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem nam distinctioa</p> 
+                <a href="{% url 'register-page' %}"><button type="submit" class="btn    reg-btn">Register</button> </a>
+            </div>
+
+
+            <div class="col-11 col-md-7  login-form   mt-5 mb-4 me-0 p-5 text-center justify-content-center" style="background-color: #ffffff;">
+                
+                <img  class="img-fluid"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="user" width="100px" height="100px">
+                <br>
+                <div class="d-inline-flex" >
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+                    <h3>Website-Name</h3>
+                    </div>
+                <form action="{% url 'login-page' %}" method="POST" enctype="application/x-www-form-urlencoded">
+
+                    <div class="row p-3 justify-content-center ">
+
+                        <div class="col-7 d-flex input-field "><i class="bi icon bi-envelope-fill" ></i> <input type="email" name="email" class="input-box " placeholder="Email" id="email" required></div>
+                    </div>
+
+                    <div class="row p-3 justify-content-center ">
+                        <div class="col-7 d-flex input-field"> <i class="bi icon bi-lock-fill"></i><input type="password" name="password" class="input-box" placeholder="Password" id="email" required></div>
+                    </div>
+
+                    <div class="row p-3 forget justify-content-center" style="font-size: 15px;">
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="form-check form-switch ">
+                                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                              </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-4  col-xl-3" >
+                            <a href="{% url 'forgot-pswd' %}">Forget password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn text-light login-btn">Login</button> 
+                </form>
+
+            </div>
+           
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid footer bg-dark text-light   " >
+        <div class="row  text-center justify-content-center">
+            <div class="row  justify-content-center p-2">
+            <div class="col-10 col-md-2">Copyright &copy 2021</div>
+            <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
+        </div>
+        </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

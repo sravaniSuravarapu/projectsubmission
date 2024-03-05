@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title> Edit-Profile(admin)</title>
+    <style class="text/css">
+       
+        /*navbar*/
+        .logo{
+            width: 40px;
+        }
+        .nav-user{
+            width: 30px;
+        }
+        abbr{
+            text-align: none;
+            cursor: pointer;
+        }
+
+
+        /*side-menu*/
+       a{
+           text-decoration: none;
+           color:none;
+       }
+       .menu-div{
+           background-color: rgb(11, 36, 77);
+           color: #fff;
+           min-height: 760px;
+            left: 0%;
+            border-right: 1px rgb(255, 255, 255) solid;
+
+       }
+       .list-group
+       {
+           width: 100%;
+          
+       }
+       .side-links{
+           padding: 10px 10px;
+           color: rgb(255, 255, 255);
+           font-size: 17px;
+           background-color: inherit;
+           width: 100%;
+           border: none;
+           border-left:  transparent 3px solid;
+           
+       }
+       .side-links:hover {
+           border-left: blue 3px solid;
+           background-image:  linear-gradient(to right, rgb(242, 247, 250), rgb(189, 223, 245));
+       }
+       .on-btn{
+        border-left: blue 3px solid;
+        color: blue;
+        background-image:  linear-gradient(to right, rgb(242, 247, 250),rgb(189, 223, 245));
+       }
+       .logout{
+           padding: 15px;
+           font-size: 17px;
+           margin-bottom: 10px;
+           color: aliceblue;
+       }
+
+       /* content-div */
+       .content-div{
+           background-color: rgb(240, 245, 233);
+           overflow-y: auto;
+           scroll-behavior: smooth;
+           max-height: 780px;
+
+       }    
+       .min-nav{
+            padding: 15px;
+            background-color: rgba(11, 36, 77, 1);
+           border-radius: 10px;
+           display: inline;
+       }
+
+      
+       .btn-opt{
+            padding : 6px 9px;
+           color: white;
+           border-radius: 20px;
+           font-size: 17pxz;
+           font-weight: 600;
+           border: 2px solid transparent;   
+       }
+       .btn-opt:hover{
+           color:aliceblue ;
+           border: 2px solid white   ;   
+       }
+
+       /* */
+       .name{
+            
+            text-transform: capitalize; 
+            font-weight: bold;
+            font-variant: small-caps;
+           
+        }
+       .profile-pic {
+           border-radius: 50%;
+           max-width: 20% ;
+           min-width: 150px;  
+       }
+       
+       .side-head{
+           background-color: rgb(13, 79, 122);
+           color: white;
+           padding: 10px;
+           border-radius: 10px 10px 0 0  ;
+       }
+       
+
+        .content{
+            
+            max-height: 800px;
+            overflow-y: scroll;
+            left: 0%;
+        }
+
+        .nav-prof{
+            width: auto;
+            height: 30px;
+            border-bottom: 50%;
+        }
+        .menu-icon{
+            margin-left: 7%;
+        }
+
+        .input-field{
+           border: none;
+           outline: none;
+           background-color: transparent;
+           border-bottom: 2px solid black;
+           height: 50px;
+       }
+
+      #Address{
+          border: 1px solid black;
+      }
+
+      .btn{
+          border-radius: 10px;
+      }
+
+      .btn:active{
+          background-color: green;
+      }
+
+      .address{
+        background-color: transparent;
+      }
+
+
+    </style>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+    {% endif %}
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar  navbar-light bg-light shadow ">
+        <div class="container-fluid">
+            <div class="col-12  col-xl-2 text-center  ">
+                <a class=" navbar-brand fw-bold " href="#">
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+                    <abbr title="Project-submisttion-portal"><span class="d-xl-inline d-none"> PSP</span></abbr> <span class="d-xl-none">Project-submission-portal</span>
+                </a>
+            </div>
+            <div class="col-12    col-xl-10 d-flex">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-opt" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h5 class="ms-3  my-auto">Edit-Profile</h5>
+                <div class="d-flex text-dark  ms-auto">
+                    <a class="nav-link " href="#"> 
+                        <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
+                        <span class="ms-2 me-1 d-none d-md-inline " >{{user.first_name}} {{user.last_name}}</span>
+                    </a>
+                    <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>  <!--navbar-end-->
+
+    <!--content-->
+    <div class="container-fluid">
+        <div class="row ">
+            <!--side-menu-->
+            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+                <div class="list-group mt-1">
+                    <a href="{% url 'dashboard' %}" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item on-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href = "{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Change-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
+                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                        <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
+                    </a>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item " href="#"><i class="bi bi-plus-circle-fill me-2"></i> <span class=""> upload</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
+                        </ul>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                </div>
+                <br><br><br><br><br><br>
+                    <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                <br><br><br>
+            </div>
+
+            <!---main-content-->
+            <div class="col   content-div"> 
+                <h2 class="side-head mt-3" > <i class="bi bi-pencil-square me-2"></i> Edit-profile</h2>
+
+                 <!-- forms-->
+                <form action="{% url 'edit-profile' %}" method="POST" enctype="application/x-www-form-urlencoded">
+                    {% csrf_token %}
+
+                <div class=" row row p-3 justify-content-center ">
+                    <div class="col-4 col-md-2  ms-4 ">
+                        <img  class="img-fluid profile-pic img-rounded  " src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">
+                        
+                    </div>
+                     <div class="col-7 col-md-8 ">
+                        <h3 class="edit-name mt-3">{{user.first_name}} {{user.last_name}}</h3>
+                        <p class="lead d-none d-md-inline" style="font-size: 17px;">Lorem ipsum dolor, sit amet Consequatur, exercitationem.</p>
+                        <div class="mt-2">
+                            <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square me-1 "></i>Profile-pic</label>
+                            <input class="form-control invisible" type="file" id="formFile">
+                          </div>
+                    </div>
+                </div>
+
+
+                
+                 
+                 <div class="mt-3">
+                
+                    <div class="row p-3 justify-content-center  ">
+                        <div class="col-10 col-md-10 col-lg-5  mb-2 ">
+                            <label for="First-name" class="form-label"> First-name </label><br>
+                            <input type="text" class="form-control input-field" placeholder="{{user.first_name}}" id="First-name" style="width:90%;">
+                        </div>
+                        <div class="col-10  col-md-10 col-lg-5  mb-2" >
+                            <label for="Last-name" class="form-label"> Last-name </label><br>
+                            <input type="text" class="form-control  input-field" placeholder="{{user.last_name}}" id="Last-name" style="width:90%;">
+                        </div>
+                    </div>
+
+                    <div class="row p-3 justify-content-center ">
+                        <div class="col-10 col-md-10 col-lg-5  mb-2 ">
+                            <label for="email" class="form-label "> Email </label><br>
+                            <input type="email" class="form-control input-field" placeholder="{{user.email}}" id="email"style="width:90%;" disabled>
+                        </div>
+                        <div class="col-10  col-md-10 col-lg-5  mb-2 " >
+                            <label for="number" class="form-label"> Number </label><br>
+                            <input type="number" class="form-control input-field" placeholder="{{user.mobile}}" id="number"style="width:90%;">
+                        </div>
+                       
+                    </div>
+
+                    <div class="row p-3 justify-content-center  ">
+                        <div class="col-10  col-md-10 col-lg-5   ">
+                            <label for="Institute" class="form-label">Institute</label><br>
+                            <input type="text" class="form-control input-field"  placeholder="{{user.clg}}" id="Institute" style="width:90%;">
+                        </div>
+                    
+                   
+                        <div class="col-10  col-md-10 col-lg-5   ">
+                            <label for="date-of-birth" class="form-label"> Date-of-Birth</label><br>
+                            <input type="date" class="form-control input-field"  id="date-of-birth" style="width:90%;">
+                        </div>
+
+                    <div class="row justify-content-center  ">
+                        <div class="col-10 col-md-10 col-lg-5 ">
+                            <label for="Address" class="form-label">Address</label>
+                            <textarea class="form-control address" id="Address" rows="3" placeholder="{{user.address}}"></textarea>
+                        </div>
+                    </div>
+                   
+                    <div class="row justify-content-center mt-2 p-5">
+                        <div class="col-7  col-md-5 text-center">
+                            <button type="submit" class="btn btn-primary p-3">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row justify-content-center">
+                    <div class="col-7  col-md-5 text-center">
+                            <a href="profile-page.html"><button class="btn btn-outline-primary"><i class="bi bi-arrow-bar-left"></i> Go back</button></a>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+           
+
+            
+          
+        
+
+
+
+
+
+
+   <!-- footer -->
+    <footer>
+        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="row  text-center justify-content-center">
+            <div class="row  justify-content-center p-2">
+                <div class="col-10 col-md-2">Copyright &copy 2021</div>
+                <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
+            </div>
+        </div>
+        </div>     
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

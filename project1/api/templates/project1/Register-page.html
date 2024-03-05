@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Regester-page</title>
+
+    <style type="text/css">
+
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body{
+            background-image: linear-gradient( to left, #0873a5, #6fd5fe);
+            color: #fff;
+        }
+        
+        
+
+        .img-gif{
+            height: 300px;
+            width: auto;
+        }
+        p{
+            font-size: 15px;
+        }
+        .reg-btn{
+            background-color: #fff;
+            padding: 8px 60px;
+            border-radius: 20px;
+            color: #068B52;
+            font-weight: 600;
+        }
+       
+        
+        .reg-btn:hover{
+             color: #fff;
+             font-weight: 600;
+             background-color: rgb(16, 60, 255);             
+
+        }
+
+        .login-btn{
+            background-color: rgb(16, 159, 255); 
+            padding: 8px 60px;
+            border-radius: 20px;
+            font-weight: 600;
+        
+        }
+        .login-btn:hover{
+             color: #fff;
+             font-weight: 600;
+             background-color: rgb(30, 110, 230);          
+
+        }
+        .login-btn:active{
+            background-color: rgb(30, 230, 120);  
+        }
+        a{
+            text-decoration: none;
+        }
+     
+
+        .login-form{
+            color: #000;
+            border-radius: 20px 150px 150px 20px;
+            box-shadow: 15px 20px 49px -14px #000;
+        }
+
+
+        .input-field{
+           
+            height:55px;
+            background-color: #d8e8ee;
+            margin: 5px;
+            border-bottom: rgb(7, 106, 255) solid 3px;
+            border-radius:  20px ;
+            position: relative;
+            font-size: x-large;
+           
+
+        }   
+        .icon{
+            justify-content: center;
+            text-align: center;
+            line-height: 45px;
+            padding: 3px;
+            color: #000000;
+            font-size: 25px;
+        }
+        .input-box{
+            margin-left: 10px;
+            background-color: transparent;
+            outline: none;
+            border:none;
+            border-radius: 50px;
+            
+            font-weight: 700;
+            font-size: 1.1rem;           
+            color: #000000;  
+            
+        }
+        .btn-outline-primary{
+            padding: 10px 40px;
+            border-radius: 20px;
+        }
+        
+        .radio-div {
+            color: #000000; 
+            font-weight: 700;
+            font-size: 1.1rem;   
+        }
+        .gender{
+            justify-content: center;
+            text-align: left;
+            font-size: 1rem;
+            padding: 10px;
+            width: 90%;
+            border-radius: 10px;
+            margin: 2px;
+            height: 45px;
+            margin-top: 6px;
+            background-color:rgb(245, 245, 255);
+            border: none;
+            margin-right: -9px;
+            border-left: rgb(7, 106, 255) solid 3px;
+            
+        }
+        .logo{
+            width: auto;
+            height:40px ;
+            line-height: 50px;
+        }
+      
+    </style>
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+  </head>
+  <body>
+
+     <!--navbar-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class=" ms-5 navbar-brand" href="#">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+            RGUKT
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex ms-auto me-3    ">
+              <a href="{% url 'login-page' %}" class="btn btn-primary me-5" type="button">login</a> 
+            </form>
+          </div>
+        </div>
+      </nav>
+ 
+    <!--login-container-->
+    <div class="container-fluid m-1 ">
+        <div class="row text-evenly justify-content-evenly">
+
+
+           
+
+
+            <div class="col-11 col-md-8  login-form  bg-light mt-5 mb-4  p-5 text-center justify-content-center">
+                
+                <img  class="img-fluid"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="user" width="100px" height="100px">
+                <br>
+                <div class="d-inline-flex" >
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+                    <h3>Website-Name</h3>
+                    </div>
+                <form action="{% url 'register-page' %}" method="POST" enctype="application/x-www-form-urlencoded">
+                    {% csrf_token %}
+                    <div class="btn-group input-field" role="group" aria-label="Basic radio toggle button group" aria-required="true">
+                        <input type="radio" class="btn-check" name="role" value="student" id="btnradio1" autocomplete="off"  data-bs-toggle="collapse" data-bs-target="#std" role="button" aria-expanded="false" aria-controls="std" required>
+                        <label class="btn btn-outline-primary" for="btnradio1">Student</label>
+                      
+                        <input type="radio" class="btn-check" name="role" value="faculty" id="btnradio2" autocomplete="off" data-bs-toggle="collapse" data-bs-target="#fac" role="button" aria-expanded="false" aria-controls="fac">
+                        <label class="btn btn-outline-primary" for="btnradio2">Faculty</label>
+                     </div>
+                     <div class="collapse" id="std">
+                        <h4 class="text-primary" style="font-size: 40px;"> Apply as Student </h4>
+                    </div>
+                    <div class="collapse" id="fac" >
+                        <h4 class="text-primary" style="font-size: 40px;"> Apply as Faculty </h4>
+                    </div>
+
+
+                    <div class="row p-3 justify-content-evenly ">
+                        <div class="col-10 col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <i class="bi icon bi-person-fill" style="font-size: 25px;"></i> 
+                            <input name="first_name" type="text" class="input-box" placeholder="First name" id="First-name" style="width:90%;"  required>
+                        </div>
+                        <div class="col-10  col-md-10 col-lg-5 d-flex mb-2 input-field" >
+                            <i class="bi icon bi-person" style="font-size: 25px;"></i> 
+                            <input name="last_name" type="text" class="input-box" placeholder="Last name" id="Last-name" style="width:90%;" required>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 justify-content-evenly text-dark text-center">
+                        <div class="col-10 col-md-10 col-lg-5 d-flex mb-2 input-field">
+    
+                            <i class="bi icon bi-person-badge-fill" style="font-size: 20px;"></i> 
+                            <input name="clg_id" type="text" class="input-box" placeholder=" college ID "  id="id"style="width:90%;"  required>
+                        </div>
+                       
+                        <div class="col-10  col-md-10 col-lg-5 mb-2 input-field "  >
+                            <input name="dob" type="date"  class="input-box" style="width:90%;  line-height: 40px;" ></div>
+                         </div>
+
+                    <div class="row p-3 justify-content-evenly ">
+                        <div class="col-10 col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <i class="bi icon bi-envelope-fill" style="font-size: 20px;"></i> 
+                            <input name="email" type="email" class="input-box" placeholder=" Email" id="email"style="width:90%;"  required>
+                        </div>
+                        <div class="col-10  col-md-10 col-lg-5 d-flex mb-2 input-field" >
+                            <i class="bi icon bi-telephone-fill" style="font-size: 20px;"></i>
+                            <input name="mobile" type="number" class="input-box" placeholder=" Number" id="number"style="width:90%;"  required>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row p-3 justify-content-evenly ">
+
+                        <div class="col-10 col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <label for="gender" style="font-size: 1.2rem; line-height: 50px; font-weight: bold;">Gender:</label>
+                            <select   name="gender" id="gender" class="gender ms-4 ">
+                            <option value="">--Gender--</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="trans">Trans</option>
+                            </select>
+                        </div>
+
+                        <div class="col-10 col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <label for="Branch" style="font-size: 1.2rem; line-height: 50px; font-weight: bold;">Branch:</label>
+                            <select   name="branch" id="Branch" class="gender ms-4 ">
+                            <option value="">---Branch---</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="MME">MME</option>
+                            <option value="CHEM">CHEM</option>
+                            <option value="MECH">MECH</option>
+                        </select>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row p-3 justify-content-evenly  ">
+                        <div class="col-10  col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <i class="bi icon bi-key-fill" style="font-size: 20px;"></i> 
+                            <input name="password" type="password" class="input-box " placeholder="Password" id="password" style="width:90%;" required>
+                        </div>
+                        <div class="col-10  col-md-10 col-lg-5 d-flex mb-2 input-field">
+                            <i class="bi icon bi-key" style="font-size: 20px;"></i> 
+                            <input name="confirm_password" type="password" class="input-box" placeholder="Confirm password" id="password" style="width:90%;" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center m-3">
+                        <div class="col-11 col-lg-5  ">
+                            <div class="form-check justify-content-center">
+                                <input name="accept" class="form-check-input" type="checkbox" value="" id="conditions" required>
+                                <label class="form-check-label" for="conditions" required>
+                                I accept the <a href="#"  >Terms of Use </a> & <a href="#" >Privacy policy </a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn text-light login-btn">Register</button> 
+                </form>
+
+            </div>
+            
+
+            <div class="col-11 col-md-3 p-2 m-3 text-light text-center mt-4 " style="text-align:center; justify-content: center;">
+                <img  class="img-gif  mt-5 mb-5" src="https://pragmaticslearning.com/wp-content/uploads/2019/07/Man_Working_at_his_Desk_GIF_Animation_Loop.gif" alt=" logo" >
+                <h2 class="mb-2"><b>Already a Member?</b></h2>
+                <p class="mb-4" > Login here and continue your Journey....!<br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, autem!</p> 
+                <a href="{% url 'login-page' %}"><button type="submit" class="btn mb-0 reg-btn">Login</button> </a>
+            </div>
+
+           
+            
+
+           
+        </div>
+    </div>
+    
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid footer bg-dark text-light  " >
+          <div class="row  text-center justify-content-center">
+            <div class="row  justify-content-center p-2">
+            <div class="col-10 col-md-2">Copyright &copy 2021</div>
+            <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
+         </div>
+        </div>
+        </div>
+     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

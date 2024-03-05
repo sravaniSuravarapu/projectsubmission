@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>Profile-page</title>
+    <style class="text/css">
+
+        body{
+            font-size: small;
+        }
+       
+        /*navbar*/
+        .logo{
+            width: 40px;
+        }
+        .nav-user{
+            width: 30px;
+        }
+        abbr{
+            text-align: none;
+            cursor: pointer;
+        }
+
+
+        /*side-menu*/
+       a{
+           text-decoration: none;
+           color:none;
+       }
+       .menu-div{
+           background-color: rgb(11, 36, 77);
+           color: #fff;
+           min-height: 760px;
+            left: 0%;
+            border-right: 1px rgb(255, 255, 255) solid;
+
+       }
+       .list-group
+       {
+           width: 100%;
+          
+       }
+       .side-links{
+           padding: 10px 10px;
+           color: rgb(255, 255, 255);
+           font-size: 17px;
+           background-color: inherit;
+           width: 100%;
+           border: none;
+           border-left:  transparent 3px solid;
+           
+       }
+       .side-links:hover {
+           border-left: blue 3px solid;
+           background-image:  linear-gradient(to right, rgb(242, 247, 250), rgb(189, 223, 245));
+       }
+       .on-btn{
+        border-left: blue 3px solid;
+        color: blue;
+        background-image:  linear-gradient(to right, rgb(242, 247, 250),rgb(189, 223, 245));
+       }
+       .logout{
+           padding: 15px;
+           font-size: 17px;
+           margin-bottom: 10px;
+           color: aliceblue;
+       }
+
+       /* content-div */
+       .content-div{
+           background-color: rgb(240, 245, 233);
+           overflow-y: auto;
+           scroll-behavior: smooth;
+           max-height: 780px;
+
+       }    
+       .min-nav{
+            padding: 15px;
+            background-color: rgba(11, 36, 77, 1);
+           border-radius: 10px;
+           display: inline;
+       }
+
+       .side-head{
+           font-weight: 700;
+           padding: 6px 20px;
+           font-size: 25px;
+           background-color: #005;
+           color: #fff;
+           display: inline-table;
+       }
+
+       .btn-opt{
+            padding : 6px 9px;
+           color: white;
+           border-radius: 20px;
+           font-size: 17pxz;
+           font-weight: 600;
+           border: 2px solid transparent;   
+       }
+       .btn-opt:hover{
+           color:aliceblue ;
+           border: 2px solid white   ;   
+       }
+
+       .name{
+            
+            text-transform: capitalize; 
+            font-weight: bold;
+            font-variant: small-caps;
+           
+        } 
+       .profile-pic {
+           border-radius: 50%;
+           max-width: 20% ;
+           min-width: 150px;
+           
+          
+       }
+       a{
+           text-decoration: none;
+           color:none;
+       }
+
+       .data{
+           border:rgb(13, 79, 122) 3px solid;
+           border-radius: 10px;
+       }
+
+       table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+         td {
+            text-align: left;
+            padding: 5px;
+        }
+        th{
+           text-indent: 15%;
+            padding: 5px;
+        }
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+        .content{
+            
+            max-height: 800px;
+            overflow-y: scroll;
+            left: 0%;
+        }
+     
+        .nav-prof{
+            width: auto;
+            height: 30px;
+            border-bottom: 50%;
+        }
+        .menu-icon{
+            margin-left: 7%;
+        }
+
+        .prof-media-icons {
+            font-size: 30px;
+        }
+        .prof-media-icons .bi{
+            padding: 5px;
+        }
+
+       
+
+    </style>
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar  navbar-light bg-light shadow ">
+        <div class="container-fluid">
+            <div class="col-12  col-xl-2 text-center  ">
+                <a class=" navbar-brand fw-bold " href="#">
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
+                    <abbr title="Project-submission-portal"><span class="d-xl-inline d-none"> PSP</span></abbr> <span class="d-xl-none">Project-submission-portal</span>
+                </a>
+            </div>
+            <div class="col-12    col-xl-10 d-flex">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-opt" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h5 class="ms-3  my-auto">My Profile</h5>
+                <div class="d-flex text-dark  ms-auto">
+                    <a class="nav-link " href="#"> 
+                        <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
+                        <span class="ms-2 me-1 d-none d-md-inline " >{{user.first_name}} {{user.last_name}}</span>
+                    </a>
+                    <a class="nav-link" onclick="notifications()" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
+                    <a href="#" id="notification_link" hidden></a>
+                </div>
+            </div>
+        </div>
+    </nav>  <!--navbar-end-->
+
+
+     <!--Notifications-->
+     <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
+        <div class="offcanvas-header">
+            <h6 class="side-head ms-1 mt-2 p-2" id="regester">Notifications</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="p-1">   
+                {% for instruction in project_instructions %} 
+                <div class="p-1 border  shadow" style="background-color:#0111;">
+                    <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
+                    <div>
+                        <span class="fw-bold">Due Date : </span>
+                        <span>{{ instruction_dueDate }}</span>
+                    </div>
+                    <div>
+                        <ul>
+                            {% for msg in instruction_msg %}
+                            <li>{{ msg }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+
+    <!--content-->
+    <div class="container-fluid">
+        <div class="row ">
+            <!--side-menu-->
+            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+                <div class="list-group mt-1">
+                    <a href="{% url 'dashboard' %}" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="{% url 'profile-page' %}" class="side-links list-group-item on-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href="{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                        <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
+                    </a>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item " href="#"><i class="bi bi-plus-circle-fill me-2"></i> <span class=""> upload</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
+                             <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
+                        </ul>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                </div>
+                <br><br><br><br><br><br>
+                    <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                <br><br><br>
+            </div>
+
+            <!---main-content-->
+            <div class="col   content-div"> 
+            <!--content page-->
+            <h2 class="side-head mt-3" > <i class="bi bi-person-square me-2"></i> My profile</h2>
+
+
+
+                <div class="text-center picture-div ">
+                    <img  class="img-fluid  img-rounded profile-pic p-3"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">  <!--profile pic-->
+                  
+                    <h3 class="name mb-1">{{user.first_name}} {{user.last_name}}</h3><br> 
+                    <div class="prof-media-icons mb-2">
+                        <i class="bi bi-envelope-fill"></i>
+                        <i class="bi bi-telephone-fill"></i>
+                        <i class="bi bi-linkedin"></i>
+                    </div>
+                </div>
+                
+                <div class="mt-3 data  "  >
+                    <h3 class="side-head "> Details</h3>
+                    <table class="mb-2">
+                        <tr>
+                            <th>Gender</th> <td> <span class="me-5 bold">:</span>{{user.gender}}</td>
+                        </tr>
+                        <tr>
+                            <th>Date-of-birth</th> <td><span class="me-5 bold">:</span>{{user.dob}}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th> <td><span class="me-5 bold">:</span>{{user.mobile}}</td>
+                        </tr>
+                        <tr>
+                            <th>University Email</th> <td><span class="me-5 bold">:</span>{{user.email}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Address</th> <td><span class="me-5 bold">:</span>{{user.address}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+    
+                
+                <div class="mt-3 data">
+                    <h3 class="side-head "> About me</h3>
+                    <h6> <i class="bi bi-book-fill ms-4 me-2"></i>Education</h6>
+                    <p class="ms-4 mb-3">{{user.branch}} {{user.year}}</p>
+
+                    <h6> <i class="bi bi-laptop-fill ms-4 me-2"></i> Projects</h6>
+                    <p class="ms-4 mb-3">{% for project in projects %} {{project.project_title}}, {% endfor %}</p>
+
+                    <h6 > <i class="bi bi-geo-alt-fill ms-4 me-2"></i>Address</h6>
+                    <p class="ms-4 mb-3">{{user.address}}</p>
+                </div>
+                
+                <div class="mt-3 data mb-4 ">
+                        <h3 class="side-head "> Projet status</h3>
+                        <div class="ms-5">
+                            <small>Web Design</small>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar bg-success " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small>Website Markup</small>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small>Mobile Template</small>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+           
+
+            
+          
+        
+
+
+
+
+
+
+   <!-- footer -->
+    <footer>
+        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="row  text-center justify-content-center">
+            <div class="row  justify-content-center p-2">
+                <div class="col-10 col-md-2">Copyright &copy 2021</div>
+                <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
+            </div>
+        </div>
+        </div>     
+    </footer>
+
+
+    
+    <script>
+        function notifications()
+        {
+          document.getElementById('notification_link').click();
+        }
+      </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

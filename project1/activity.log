@@ -1,0 +1,100 @@
+2022-08-01 18:12:06,619:INFO:download_project:<django.http.response.FileResponse object at 0x7ff9441f2100>
+2022-08-01 18:42:45,012:INFO:logout_user:Session expired
+2022-08-01 18:42:45,047:INFO:login_user:Request for fetching login-page.html
+2022-08-01 18:43:02,058:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 18:54:19,987:INFO:logout_user:Session expired
+2022-08-01 18:54:20,022:INFO:login_user:Request for fetching login-page.html
+2022-08-01 18:54:28,023:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 19:31:16,852:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:31:22,236:ERROR:login_user:User not found
+2022-08-01 19:31:22,286:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:31:33,149:ERROR:login_user:User not found
+2022-08-01 19:31:33,198:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:31:46,432:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 19:31:57,690:INFO:get_user:Request for User details
+2022-08-01 19:32:09,704:INFO:logout_user:Session expired
+2022-08-01 19:32:09,744:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:32:32,837:ERROR:login_user:User not found
+2022-08-01 19:32:32,873:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:32:52,563:ERROR:login_user:User not found
+2022-08-01 19:32:52,596:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:33:17,724:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 19:33:24,950:INFO:logout_user:Session expired
+2022-08-01 19:33:24,993:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:33:45,107:ERROR:login_user:User not found
+2022-08-01 19:33:45,147:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:34:01,713:ERROR:login_user:User not found
+2022-08-01 19:34:01,749:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:34:34,487:ERROR:login_user:User not found
+2022-08-01 19:34:34,522:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:36:26,617:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 19:36:31,593:INFO:logout_user:Session expired
+2022-08-01 19:36:31,634:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:36:46,577:ERROR:login_user:User not found
+2022-08-01 19:36:46,613:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:38:26,552:ERROR:login_user:User not found
+2022-08-01 19:38:26,595:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:40:05,080:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 19:48:30,021:INFO:logout_user:Session expired
+2022-08-01 19:48:30,053:INFO:login_user:Request for fetching login-page.html
+2022-08-01 19:48:44,517:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 20:01:21,166:INFO:logout_user:Session expired
+2022-08-01 20:01:21,199:INFO:login_user:Request for fetching login-page.html
+2022-08-01 23:28:23,255:INFO:login_user:Request for fetching login-page.html
+2022-08-01 23:28:37,004:ERROR:login_user:User not found
+2022-08-01 23:28:37,037:INFO:login_user:Request for fetching login-page.html
+2022-08-01 23:28:55,787:INFO:login_user:Token set to cookies with key 'token'
+2022-08-01 23:47:05,072:INFO:login_user:Request for fetching login-page.html
+2022-08-01 23:47:16,697:INFO:register_user:Request for fetching Register-page.html
+2022-08-01 23:48:29,992:INFO:register_user:user created with is_verified value as False
+2022-08-01 23:48:30,000:INFO:register_user:Request for fetching Register-page.html
+2022-08-01 23:48:33,427:INFO:login_user:Request for fetching login-page.html
+2022-08-01 23:48:43,810:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 00:23:36,346:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:24:15,271:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 00:51:01,257:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:51:07,127:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:51:10,250:ERROR:login_user:User not found
+2022-08-02 00:51:10,334:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:51:22,346:ERROR:login_user:User not found
+2022-08-02 00:51:22,400:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:51:58,384:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 00:53:35,442:INFO:register_user:user created with is_verified value as False
+2022-08-02 00:53:35,507:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 00:53:41,166:INFO:login_user:Request for fetching login-page.html
+2022-08-02 00:53:47,370:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 01:00:06,763:INFO:login_user:Request for fetching login-page.html
+2022-08-02 01:00:14,143:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 01:02:43,813:INFO:login_user:Request for fetching login-page.html
+2022-08-02 01:02:50,743:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 01:03:41,599:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 01:06:13,572:INFO:get_user:Request for User details
+2022-08-02 22:36:08,843:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:43:23,548:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:45:19,844:ERROR:register_user:{'branch': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-08-02 22:45:19,958:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:50:29,965:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:51:29,144:INFO:register_user:user created with is_verified value as False
+2022-08-02 22:51:29,179:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:52:58,247:INFO:register_user:user created with is_verified value as False
+2022-08-02 22:52:58,280:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:53:05,637:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:53:14,415:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 22:56:17,851:INFO:create_notifications:{'is_viewed': 0, 'clg_id': 'n190231', 'due_date': '2022-08-23', 'msg_title': 'hello', 'instructions': 'jdcnuiwncenhcjkcnuimcnnnunce', 'faculty': 'kattappa amarendra'}
+2022-08-02 22:56:38,637:INFO:logout_user:Session expired
+2022-08-02 22:56:38,672:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:56:51,374:ERROR:login_user:User not found
+2022-08-02 22:56:51,409:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:57:11,528:ERROR:login_user:User not found
+2022-08-02 22:57:11,562:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:58:08,527:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:59:04,669:INFO:register_user:user created with is_verified value as False
+2022-08-02 22:59:04,704:INFO:register_user:Request for fetching Register-page.html
+2022-08-02 22:59:10,737:INFO:login_user:Request for fetching login-page.html
+2022-08-02 22:59:16,385:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 23:01:14,189:INFO:logout_user:Session expired
+2022-08-02 23:01:14,222:INFO:login_user:Request for fetching login-page.html
+2022-08-02 23:01:38,856:INFO:login_user:Token set to cookies with key 'token'
+2022-08-02 23:10:07,494:INFO:login_user:Request for fetching login-page.html
+2022-08-02 23:10:23,796:INFO:login_user:Request for fetching login-page.html
+2022-08-02 23:10:39,199:INFO:login_user:Token set to cookies with key 'token'
